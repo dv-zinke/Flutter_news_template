@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_template/models/ListItem.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,6 +8,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+
+  List<ListItem> listTiles = [
+    ListItem(imgUrl, newsTitle, author, date)
+  ];
+
   List<Tab> _tabList = [
     Tab(
       child: Text("Top"),
