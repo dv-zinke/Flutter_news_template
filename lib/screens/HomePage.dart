@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_template/models/ListItem.dart';
+import 'package:news_template/widget/ListWidget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,9 +9,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-
   List<ListItem> listTiles = [
-    ListItem(imgUrl, newsTitle, author, date)
+    ListItem(
+      "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+      "zz",
+      "dd",
+      "22"
+    ),
+    ListItem(
+        "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+        "zz",
+        "dd",
+        "22"
+    ),
+    ListItem(
+        "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+        "zz",
+        "dd",
+        "22"
+    ),
+    ListItem(
+        "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+        "zz",
+        "dd",
+        "22"
+    ),
+    ListItem(
+        "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+        "zz",
+        "dd",
+        "22"
+    ),
+    ListItem(
+        "http://bios2017.godohosting.com/goods_mainimage/2395.jpg",
+        "zz",
+        "dd",
+        "22"
+    )
   ];
 
   List<Tab> _tabList = [
@@ -64,12 +99,11 @@ class _HomePageState extends State<HomePage>
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(30.0),
           child: TabBar(
-            indicatorColor: Colors.black,
-            isScrollable: true,
-            labelColor: Colors.black,
-            controller: _tabController,
-            tabs: _tabList
-          ),
+              indicatorColor: Colors.black,
+              isScrollable: true,
+              labelColor: Colors.black,
+              controller: _tabController,
+              tabs: _tabList),
         ),
       ),
       body: TabBarView(
@@ -77,6 +111,17 @@ class _HomePageState extends State<HomePage>
         children: [
           Padding(
             padding: EdgeInsets.all(8),
+            child: Container(
+              child: ListView.builder(
+                itemCount: _tabList.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {},
+                    child: listWidget(listTiles[index]),
+                  );
+                },
+              ),
+            ),
           ),
           Padding(
             padding: EdgeInsets.all(8),
